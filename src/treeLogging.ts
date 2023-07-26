@@ -10,29 +10,29 @@ function logAllPeopleInTree(rootPerson)
         push each element of currentPerson's children onto the workStack
 */
 
-export function logAllPeopleInTree(topPerson: Person): void {
-    let workStack:Person[] = [];
-    workStack.push(topPerson);
-    while(workStack.length>0) {
-            const currentPerson = workStack.pop() as Person;
-            console.log(currentPerson.name);
-            workStack.push(...currentPerson.children);
+export function logAllPeopleInTree(topPerson: Person): string[] {
+  let workStack: Person[] = [];
+  let peopleList: string[] = [];
+  workStack.push(topPerson);
+  while (workStack.length > 0) {
+    const currentPerson = workStack.pop() as Person;
+    peopleList.push(currentPerson.name);
+    workStack.push(...currentPerson.children);
+  }
 
-
-    }
-   
+  return peopleList;
 }
 
-export function logAllPeopleInTreeWithQueue(topPerson: Person): void {
-    let queue: Person[] =[];
-    queue.push(topPerson);
-    while(queue.length>0) {
-        const currentPerson = queue.pop() as Person;
-        console.log(currentPerson.name);
-        queue.unshift(...currentPerson.children.reverse());
+export function logAllPeopleInTreeWithQueue(topPerson: Person): string[] {
+  let queue: Person[] = [];
+  let peopleList: string[] = [];
 
+  queue.push(topPerson);
+  while (queue.length > 0) {
+    const currentPerson = queue.pop() as Person;
+    peopleList.push(currentPerson.name);
+    queue.unshift(...currentPerson.children.reverse());
+  }
 
+  return peopleList;
 }
-   
-}
-

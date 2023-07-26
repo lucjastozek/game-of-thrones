@@ -1,0 +1,58 @@
+import {
+  logAllPeopleInTree,
+  logAllPeopleInTreeWithQueue,
+} from "../treeLogging";
+import { createBritishSuccessionTree } from "../families/britain";
+
+test("basic tests", () => {
+  expect(logAllPeopleInTree(createBritishSuccessionTree())).toEqual([
+    "Queen Elizabeth II",
+    "Anne",
+    "Zara",
+    "Lucas",
+    "Lena",
+    "Mia",
+    "Peter",
+    "Isla",
+    "Savannah",
+    "Edward",
+    "Louise",
+    "James",
+    "Andrew",
+    "Eugenie",
+    "August",
+    "Beatrice",
+    "Charles",
+    "Harry",
+    "Archie",
+    "William",
+    "Louis",
+    "Charlotte",
+    "George",
+  ]);
+  expect(logAllPeopleInTreeWithQueue(createBritishSuccessionTree())).toEqual([
+    "Queen Elizabeth II",
+    "Charles",
+    "Andrew",
+    "Edward",
+    "Anne",
+    "William",
+    "Harry",
+    "Beatrice",
+    "Eugenie",
+    "James",
+    "Louise",
+    "Peter",
+    "Zara",
+    "George",
+    "Charlotte",
+    "Louis",
+    "Archie",
+    "August",
+    "Savannah",
+    "Isla",
+    "Mia",
+    "Lena",
+    "Lucas",
+  ]);
+});
